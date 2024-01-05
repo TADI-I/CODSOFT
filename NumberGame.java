@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class NumberGame {
     public static void main(String[] args) 
     {
-        Scanner sc = new Scanner(System.in);
+        Scanner scan = new Scanner(System.in);
         Random rand = new Random();
         int score = 0;
         String playAgain = "";
@@ -16,7 +16,7 @@ public class NumberGame {
             while (guess != number) 
             {
                 System.out.print("Enter your guess: ");
-                guess = sc.nextInt();
+                guess = scan.nextInt();
                 count++;
                 if (guess == number) {
                     System.out.println("You guessed it right in " + count + " tries");
@@ -26,6 +26,7 @@ public class NumberGame {
                 } else {
                     System.out.println("Too low");
                 }
+				//max 5 tries
                 if(count == 5)
                 {
                     System.out.println("You have exceeded the number of tries");
@@ -34,7 +35,7 @@ public class NumberGame {
             }
             System.out.println("Your current score is: " + score);
             System.out.print("Do you want to play again? (yes/no): ");
-            playAgain = sc.next();
+            playAgain = scan.next();
         } while(playAgain.equalsIgnoreCase("yes"));
 
         System.out.println("Your final score is: " + score);
