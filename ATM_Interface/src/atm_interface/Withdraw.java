@@ -143,8 +143,10 @@ public class Withdraw extends javax.swing.JFrame {
 
         public double amount;
        BankAccount account = new BankAccount();
+       ATMMachine atm = new ATMMachine(account);
         private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
             amount = Double.parseDouble(jFormattedTextField1.getText());
+            //double num = account
             if (amount < 0) {
                 posetiveMust appp = new posetiveMust();
                 appp.setVisible(true);
@@ -156,7 +158,12 @@ public class Withdraw extends javax.swing.JFrame {
                 complete comp = new complete();
                 comp.setVisible(true);
                 this.setVisible(false);
-                account.withdraw(amount);
+               
+               
+               atm.withdraw(amount);
+                System.out.println(atm.checkBalance());
+                 
+                
             } else {
                 incifecienr low = new incifecienr();
                 low.setVisible(true);

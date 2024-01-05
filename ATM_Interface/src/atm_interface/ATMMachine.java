@@ -38,10 +38,10 @@ public class ATMMachine {
     }
 
     public static void main(String[] args) {
-        BankAccount account = new BankAccount(1000.0);
-        ATMMachine atm = new ATMMachine(account);
-        atm.deposit(500.0);
-        atm.withdraw(200.0);
-        System.out.println(atm.checkBalance());  // Outputs: 1300.0
+       // BankAccount account = new BankAccount(1000.0);
+        //ATMMachine atm = new ATMMachine(account);
+        //atm.deposit(500.0);
+        //atm.withdraw(200.0);
+        //System.out.println(atm.checkBalance());  // Outputs: 1300.0
     }
 }

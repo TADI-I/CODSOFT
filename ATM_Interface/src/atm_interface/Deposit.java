@@ -134,6 +134,7 @@ public class Deposit extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     double amount = 0;
     BankAccount account = new BankAccount();
+    ATMMachine atm = new ATMMachine(account);
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         FaceOfATM face = new FaceOfATM();
@@ -162,7 +163,8 @@ public class Deposit extends javax.swing.JFrame {
         complete comp = new complete();
                 comp.setVisible(true);
                 this.setVisible(false);
-        account.deposit(amount);
+        atm.deposit(amount);
+        System.out.println(atm.checkBalance());
         }
     }
 
