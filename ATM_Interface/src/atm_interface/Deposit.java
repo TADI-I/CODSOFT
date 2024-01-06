@@ -3,7 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package atm_interface;
-import java.util.Scanner;
+
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author tadiw
@@ -35,6 +37,7 @@ public class Deposit extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jButton1.setText("Process");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -134,7 +137,7 @@ public class Deposit extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
     double amount = 0;
     BankAccount account = new BankAccount();
-    ATMMachine atm = new ATMMachine(account);
+
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         FaceOfATM face = new FaceOfATM();
@@ -153,18 +156,13 @@ public class Deposit extends javax.swing.JFrame {
         // TODO add your handling code here:
         amount = Double.parseDouble(jFormattedTextField1.getText());
         if (amount < 0) {
-            posetiveMust appp = new posetiveMust();
-                appp.setVisible(true);
-                this.setVisible(false);
-            System.out.println("Deposit amount must be positive");
-            return;
+           JOptionPane.showMessageDialog(null,"Deposit amount must be positive");
+            
         }
         else{
-        complete comp = new complete();
-                comp.setVisible(true);
-                this.setVisible(false);
-        atm.deposit(amount);
-        System.out.println(atm.checkBalance());
+        account.deposit(amount);
+        System.out.println(account.getBalance());
+        JOptionPane.showMessageDialog(null,"Deposit of R" + amount + " Successfull");
         }
     }
 

@@ -1,6 +1,6 @@
 package atm_interface;
 
-public class ATMMachine {
+/** public class ATMMachine {
     private BankAccount account;
 
     public ATMMachine(BankAccount account) {
@@ -45,3 +45,4 @@ public class ATMMachine {
         //System.out.println(atm.checkBalance());  // Outputs: 1300.0
     }
 }
+* */

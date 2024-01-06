@@ -19,8 +19,8 @@ public class Balance extends javax.swing.JFrame {
     
      
     BankAccount account = new BankAccount();
-    ATMMachine atm = new ATMMachine(account);
-    double balance = atm.checkBalance();
+  //  ATMMachine atm = new ATMMachine(account);
+    double balance = account.getBalance();
     
 
     /**

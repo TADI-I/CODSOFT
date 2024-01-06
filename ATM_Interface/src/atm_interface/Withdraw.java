@@ -4,6 +4,8 @@
  */
 package atm_interface;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author tadiw
@@ -11,11 +13,16 @@ package atm_interface;
 //import java.util.Scanner;
 public class Withdraw extends javax.swing.JFrame {
 
+    //BankAccount account;
     /**
      * Creates new form Deposit
      */
     public Withdraw() {
         initComponents();
+    }
+    public Withdraw(BankAccount account) {
+        initComponents();
+        this.account = account;
     }
 
     /**
@@ -136,40 +143,32 @@ public class Withdraw extends javax.swing.JFrame {
         }
 
         private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
-            FaceOfATM face = new FaceOfATM();
-            face.setVisible(true);
+            new FaceOfATM().setVisible(true);
             this.setVisible(false);
         }
+        
+     
 
         public double amount;
-       BankAccount account = new BankAccount();
-       ATMMachine atm = new ATMMachine(account);
-        private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+         BankAccount account = new BankAccount();
+     
+        public void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
             amount = Double.parseDouble(jFormattedTextField1.getText());
-            //double num = account
+            
             if (amount < 0) {
-                posetiveMust appp = new posetiveMust();
-                appp.setVisible(true);
-                this.setVisible(false);
-                System.out.println("Withdrawal amount must be positive");
-                return;
+                
+                JOptionPane.showMessageDialog(null,"Withdrawal amount must be positive");
             }
             if (amount <= account.getBalance()) {
-                complete comp = new complete();
-                comp.setVisible(true);
-                this.setVisible(false);
-               
-               
-               atm.withdraw(amount);
-                System.out.println(atm.checkBalance());
-                 
-                
+                JOptionPane.showMessageDialog(null,"Withdaw of R" + amount + " Successfull");
+   
+               account.withdraw(amount);
+
+                System.out.println(account.getBalance());
+
             } else {
-                incifecienr low = new incifecienr();
-                low.setVisible(true);
-                this.setVisible(false);
-                System.out.println("Insufficient balance");
-            }
+                JOptionPane.showMessageDialog(null,"Insufficient balance");
+                 }
         }
 
         private void jFormattedTextField1ActionPerformed(java.awt.event.ActionEvent evt) {
@@ -183,8 +182,6 @@ public class Withdraw extends javax.swing.JFrame {
      */
     public static void main(String args[]) {
         
-        BankAccount account = new BankAccount(1000.0);
-        ATMMachine atm = new ATMMachine(account);
         
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
