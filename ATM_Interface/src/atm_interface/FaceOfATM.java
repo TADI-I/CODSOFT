@@ -11,7 +11,7 @@ import javax.swing.JOptionPane;
  * @author tadiw
  */
 public class FaceOfATM extends javax.swing.JFrame {
-    BankAccount bank = new BankAccount(1000.0);
+    BankAccount bank = new BankAccount();
     ATMMachine atm= new ATMMachine(bank);
 
     /**

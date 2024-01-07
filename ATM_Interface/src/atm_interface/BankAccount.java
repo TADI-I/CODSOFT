@@ -20,12 +20,10 @@ public BankAccount() {
         if (amount < 0) {    
             JOptionPane.showMessageDialog(null,"Withdrawal amount must be positive");
         }
-        if (amount <= balance) {
+        else if (amount <= balance) {
             this.balance -= amount;
             JOptionPane.showMessageDialog(null,"Withdaw of R" + amount + " Successfull");
             
-        } else {
-            JOptionPane.showMessageDialog(null,"Insufficient balance");
         }
     }
     public double getBalance() {

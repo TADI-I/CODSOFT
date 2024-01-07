@@ -13,7 +13,7 @@ import javax.swing.JOptionPane;
 //import java.util.Scanner;
 public class Withdraw extends javax.swing.JFrame {
 
-    //BankAccount account = new BankAccount();
+   
     /**
      * Creates new form Deposit
      */ 
@@ -154,11 +154,6 @@ public class Withdraw extends javax.swing.JFrame {
 
         }
         
-     
-
-        
-         // ATMMachine atm = new ATMMachine(account);
-     
         public void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
             amount = Double.parseDouble(jFormattedTextField1.getText());
             
@@ -166,8 +161,10 @@ public class Withdraw extends javax.swing.JFrame {
 
                atm.withdraw(amount);
                System.out.println(atm.checkBalance());
-
              }
+             else {
+            JOptionPane.showMessageDialog(null,"Insufficient balance");
+        }
         }
 
         private void jFormattedTextField1ActionPerformed(java.awt.event.ActionEvent evt) {
