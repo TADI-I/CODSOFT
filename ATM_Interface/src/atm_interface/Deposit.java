@@ -12,13 +12,23 @@ import javax.swing.JOptionPane;
  */
 public class Deposit extends javax.swing.JFrame {
 
+   // BankAccount account = new BankAccount();
+    //ATMMachine atm = new ATMMachine(account);
     /**
      * Creates new form Deposit
      */
+   
+    private ATMMachine atm;
+    private double amount;
     public Deposit() {
         initComponents();
+        
     }
-    
+
+    public Deposit(ATMMachine atm) {
+        initComponents();
+        this.atm = atm;
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -135,13 +145,13 @@ public class Deposit extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    double amount = 0;
-    BankAccount account = new BankAccount();
+    //double amount = 0;
+   // BankAccount account = new BankAccount();
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        FaceOfATM face = new FaceOfATM();
-        face.setVisible(true);
+        
+        new FaceOfATM(atm).setVisible(true);
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
     
@@ -160,8 +170,8 @@ public class Deposit extends javax.swing.JFrame {
             
         }
         else{
-        account.deposit(amount);
-        System.out.println(account.getBalance());
+        atm.deposit(amount);
+        System.out.println(atm.checkBalance());
         JOptionPane.showMessageDialog(null,"Deposit of R" + amount + " Successfull");
         }
     }

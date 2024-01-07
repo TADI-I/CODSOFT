@@ -1,39 +1,35 @@
 package atm_interface;
+
+import javax.swing.JOptionPane;
+
 public class BankAccount {
     private double balance;
-    private double depositAmount;
-    private double withdrawAmount;
-
-    public BankAccount() {
+    
+public BankAccount() {
         this.balance = 1000.0;
     }
-
-    public void BankAccount(double balance) {
-        this.balance = balance;
+    public BankAccount(double initialBalance) {
+        this.balance = initialBalance;
     }
 
+    public void deposit(double amount) {
+        this.balance += amount;
+    }
+
+    public void withdraw(double amount) {
+        if (amount < 0) {    
+            JOptionPane.showMessageDialog(null,"Withdrawal amount must be positive");
+        }
+        if (amount <= balance) {
+            this.balance -= amount;
+            JOptionPane.showMessageDialog(null,"Withdaw of R" + amount + " Successfull");
+            
+        } else {
+            JOptionPane.showMessageDialog(null,"Insufficient balance");
+        }
+    }
     public double getBalance() {
         return this.balance;
     }
-
-     public double getDepositAmount() {
-        return depositAmount;
-    }
     
-    public void deposit(double depositAmount) {
-        if(depositAmount > 0) {
-             this.balance += depositAmount;
-        }
-        
-    }
-     public double getWithdrawAmount() {
-        return withdrawAmount;
-    }
-     
-    public void withdraw(double withdrawAmount) {
-        if(withdrawAmount > 0 && withdrawAmount <= this.balance) {
-            this.balance -= withdrawAmount;
-        }
-       
-    }
 }

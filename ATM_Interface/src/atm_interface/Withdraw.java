@@ -13,16 +13,21 @@ import javax.swing.JOptionPane;
 //import java.util.Scanner;
 public class Withdraw extends javax.swing.JFrame {
 
-    //BankAccount account;
+    //BankAccount account = new BankAccount();
     /**
      * Creates new form Deposit
-     */
+     */ 
+     private ATMMachine atm;
+   private double amount;
     public Withdraw() {
         initComponents();
+            
+
     }
-    public Withdraw(BankAccount account) {
-        initComponents();
-        this.account = account;
+    public Withdraw(ATMMachine atm) {
+         initComponents();
+        this.atm = atm;
+
     }
 
     /**
@@ -143,32 +148,26 @@ public class Withdraw extends javax.swing.JFrame {
         }
 
         private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
-            new FaceOfATM().setVisible(true);
+            new FaceOfATM(atm).setVisible(true);
             this.setVisible(false);
+            
+
         }
         
      
 
-        public double amount;
-         BankAccount account = new BankAccount();
+        
+         // ATMMachine atm = new ATMMachine(account);
      
         public void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
             amount = Double.parseDouble(jFormattedTextField1.getText());
             
-            if (amount < 0) {
-                
-                JOptionPane.showMessageDialog(null,"Withdrawal amount must be positive");
-            }
-            if (amount <= account.getBalance()) {
-                JOptionPane.showMessageDialog(null,"Withdaw of R" + amount + " Successfull");
-   
-               account.withdraw(amount);
+            if (amount <= atm.checkBalance()) {
 
-                System.out.println(account.getBalance());
+               atm.withdraw(amount);
+               System.out.println(atm.checkBalance());
 
-            } else {
-                JOptionPane.showMessageDialog(null,"Insufficient balance");
-                 }
+             }
         }
 
         private void jFormattedTextField1ActionPerformed(java.awt.event.ActionEvent evt) {
